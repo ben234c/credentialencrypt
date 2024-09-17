@@ -23,13 +23,3 @@ print(type(key2))
 # fkey = Fernet()
 
 # plaintext = fkey.decrypt(token)
-
-# load key
-# load encrypted text/token
-# decrypt
-
-# user prompted to upload fernet encrypted file
-# user prompted to upload key file
-# return a file that contains both decrypted user and pass
-
-# https://stackoverflow.com/questions/9319317/quick-and-easy-file-dialog-in-python

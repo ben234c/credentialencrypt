@@ -78,7 +78,3 @@ if __name__=='__main__': # launch app
     app = QApplication(sys.argv)
     ex = App()
     sys.exit(app.exec_()) ()
-
-# https://pythonspot.com/pyqt5-textbox-example/
-
-# print encrypted user, pass, and keys into separate files into a dedicated folder (implement relative paths)
