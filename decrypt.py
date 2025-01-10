@@ -9,17 +9,35 @@ root.withdraw()
 key_path = filedialog.askopenfilename(title="Select key file")
 token_path = filedialog.askopenfilename(title="Select token file")
 
-f = open('decryptedtoken.txt', 'a')
+# if key and token are located within the same folder as decrypt.py
+# (encrypt.py creates them in the same folder by default),
+# comment the above two lines out and uncomment the two lines below
+# it will skip the file dialog and just grab the key and token files directly
 
-key = open(f'{key_path}', 'rb')
-token = open(f'{token_path}', 'r')
+# key_path = "./key.key"
+# token_path = "./encrypted.txt"
 
-key2 = key.read()
-token2 = token.read()
+f = open('decryptedtoken.txt', 'a') # file for original text
 
-print(key2)
-print(type(key2))
+key_file = open(f'{key_path}', 'rb')
+token_file = open(f'{token_path}', 'rb')
 
-# fkey = Fernet()
+key = key_file.read()
+token = token_file.read()
 
-# plaintext = fkey.decrypt(token)
+# changed to bin file, see if it works
+# key_str = key[2:-1] # remove the remove the b'' from the key string (ex. b'key')
+# print(key_str)
+# print(type(key_str))
+# key_bytes = key_str.encode('utf-8')
+
+# print(key_bytes)
+# print(type(key_bytes))
+
+# fkey = Fernet(key_bytes)
+fkey = Fernet(key)
+print(fkey)
+print(token)
+decrypted_token = fkey.decrypt(token).decode('utf-8')
+
+print(decrypted_token)
